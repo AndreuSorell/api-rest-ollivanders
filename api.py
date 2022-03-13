@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from stock import Stock
+from controller.stock import Stock
 
 app = Flask(__name__)
 
