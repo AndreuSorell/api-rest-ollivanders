@@ -5,15 +5,13 @@ class DB():
     uri = 'mongodb+srv://admin:admin@cluster0.thpbm.mongodb.net/ollivanders?retryWrites=true&w=majority'
     
     global collection
-
-    # Utilizamos una funcion de pymongo para conectarnos a la base de datos
+    
     client = pymongo.MongoClient(uri)
-    client.server_info() # Fuerza la conexion, si no se conecta pasa al except
-    db = client.ollivanders
-    collection = db.stock
+    client.server_info()
+    collection = client.ollivanders.stock
 
     @classmethod
-    def get_items(cls):
-        for document in collection.find({"name": "Aged Brie"}):
+    def get_items(cls, name):
+        for document in collection.find({"name": name},{"_id":False}):
             return document
     
