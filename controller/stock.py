@@ -1,6 +1,9 @@
 from flask_restful import Resource
-from repository.data_access import stock
+
+import sys
+sys.path.append(".")
+from services.service import get_items
 
 class Stock(Resource):
     def get(self):
-        return stock()
+        return get_items()
