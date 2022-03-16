@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse
+from flask_restful import Resource
 import sys
 sys.path.append(".")
 from services.service import get_items
