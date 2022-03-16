@@ -14,7 +14,6 @@ class DB():
 
     @classmethod
     def get_items(cls):
-        for document in collection.find({}):
-            for element in document:
-                return {"name": element[1]}
+        for document in collection.find({"name": "Aged Brie"}):
+            return document
     
