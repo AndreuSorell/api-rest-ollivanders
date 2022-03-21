@@ -1,10 +1,11 @@
 import sys
 sys.path.append(".")
-from repository.BBDD_access import DB
+from repository.BBDD_access import *
 
+class Services():
+    def get_items(query):
+        item = DB.get_items(query)
+        return item
 
-def get_items(name):
-    item = DB.get_items(name)
-    # return { 'name': item['name'], 'sell_in': item['sellIn'], 'quality': item['quality'] }
-    return item
-# get_items()
+    def post_items(query):
+        DB.post_item(query)

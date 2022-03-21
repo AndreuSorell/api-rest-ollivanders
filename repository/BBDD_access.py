@@ -11,9 +11,16 @@ class DB():
     collection = client.ollivanders.stock
 
     @classmethod
-    def get_items(cls, name):
-        for document in collection.find({"name": name},{"_id":False}):
-            return document
+    def get_items(cls, query):
+        documents = []
+        for document in collection.find(query,{"_id":False}):
+            documents.append(document)
+        return documents
+    
+    @classmethod
+    def post_item(cls, query):
+        collection.insert_one(query)
+
 
 with open("stock_mock.json") as json_file:
         items = json.load(json_file)
